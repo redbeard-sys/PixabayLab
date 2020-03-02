@@ -1,0 +1,28 @@
+   body {
+            text-align: center;
+            background-color:skyblue;
+            }
+
+  img {
+    border-radius: 20px;
+   }
+          
+h1{
+  color: yellow;
+  text-shadow: black 0 -2px;
+
+}
+  #top{
+
+    background-color: orange;
+    border-style: ridge;
+    border-color: coral;
+    padding: 30px;
+    margin-bottom: 20px;
+  }
+  
+  button{
+    background: orange;
+    border: 2px solid red;
+    color: yellow;
+  }

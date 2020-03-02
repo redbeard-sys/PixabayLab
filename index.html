@@ -1,0 +1,91 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Pixabay API Demo </title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="style.css">
+
+  
+        <script>
+
+          function printImg(){
+            searchImage();
+            searchImage2();
+          }
+            function searchImage() {
+
+                $.ajax({
+                    type: "GET",
+                    url: "https://pixabay.com/api/?key=15435103-fde036832cc73791ebfd8da56&orientation=vertical",
+                    dataType: "json",
+                    data: { "q":$("#keyword").val() },
+                    success: function(data, status) {
+                        let randomImage = Math.floor(Math.random() * data.hits.length);
+                        $('#image').html("<img src='"+ data.hits[ randomImage ].webformatURL+"' width='500'>");
+                        $('#image').append("<br>Likes: " + data.hits[ randomImage ].likes);
+                    }
+                }); //ajax
+                 $.ajax({
+                    type: "GET",
+                    url: "https://pixabay.com/api/?key=15435103-fde036832cc73791ebfd8da56&orientation=vertical",
+                    dataType: "json",
+                    data: { "q":$("#keyword").val() },
+                    success: function(data, status) {
+                        let randomImage = Math.floor(Math.random() * data.hits.length);
+                        $('#image2').html("<img src='"+ data.hits[ randomImage ].webformatURL+"' width='500'>");
+                        $('#image2').append("<br>Likes: " + data.hits[ randomImage ].likes)
+                    }
+                }); 
+
+
+            }//searchImage()
+
+            function searchImage2() {
+
+                $.ajax({
+                    type: "GET",
+                    url: "https://pixabay.com/api/?key=15435103-fde036832cc73791ebfd8da56&orientation=vertical",
+                    dataType: "json",
+                    data: { "q":$("#keyword").val() },
+                    success: function(data, status) {
+                        let randomImage = Math.floor(Math.random() * data.hits.length);
+                        $('#image4').html("<img src='"+ data.hits[ randomImage ].webformatURL+"' width='500'>");
+                        $('#image4').append("<br>Likes: " + data.hits[ randomImage ].likes)
+                    }
+                }); //ajax
+                 $.ajax({
+                    type: "GET",
+                    url: "https://pixabay.com/api/?key=15435103-fde036832cc73791ebfd8da56&orientation=vertical",
+                    dataType: "json",
+                    data: { "q":$("#keyword").val() },
+                    success: function(data, status) {
+                        let randomImage = Math.floor(Math.random() * data.hits.length);
+                        $('#image3').html("<img src='"+ data.hits[ randomImage ].webformatURL+"' width='500'>");
+                        $('#image3').append("<br>Likes: " + data.hits[ randomImage ].likes)
+                    }
+                }); 
+
+
+            }//searchImage()
+        </script>
+    </head>
+    <body>
+      <div id="top"> 
+        <h1> Pixabay Image Search </h1>
+        </div>
+        Keyword: <input type="text" id="keyword"/>
+        <button onclick="printImg()"> Search </button>
+        <label>Oreientation:</label>
+        <select id="Oreientation">
+  <option value="vertical">Vertical</option>
+  <option value="horizontal">Horizontal</option>
+</select>
+        <br /><br />
+        <div id="image"></div>
+        <div id="image2"></div>
+        <div id="image3"></div>
+        <div id="image4"></div>
+    
+    </body>
+</html>
